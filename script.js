@@ -14,19 +14,17 @@ const searchAuto = (rep) => {
 	searchLi.classList.add('search__item')
 	a.classList.add('search__link')
 	searchLi.appendChild(a)
+
 	if (rep.name.length > 36) {
 		a.textContent = rep.name.slice(0, 36) + '...'
 	} else {
 		a.textContent = rep.name
 	}
 
-
-
 	searchItems.appendChild(searchLi)
 
 	searchLi.addEventListener('click', (e) => {
 		const postsLi = document.createElement('li')
-
 		const postsItemText = document.createElement('span')
 		const postsItemDelete = document.createElement('span')
 		postsLi.classList.add('posts__item')
@@ -34,16 +32,12 @@ const searchAuto = (rep) => {
 		postsItemDelete.classList.add('posts__item-delete')
 		postsLi.appendChild(postsItemText)
 		postsLi.appendChild(postsItemDelete)
-
-
 		postsItemText.insertAdjacentHTML("afterbegin", `<span>Name: ${rep.name.length > 20 ? rep.name.slice(0, 20) + '...' : rep.name}</span>
 								<span>Owner: ${rep.owner.login.length > 20 ? rep.owner.login.slice(0, 20) + '...' : rep.owner.login}</span>
 								<span>Stars: ${rep.stargazers_count}</span>`)
-
 		postsItems.appendChild(postsLi)
 		searchInput.value = ''
 		searchItems.textContent = ''
-
 	})
 }
 
@@ -53,7 +47,6 @@ const searchRep = async () => {
 			if (res.ok) {
 				return res.json()
 			}
-
 		})
 		.then(rep => {
 			rep.items.forEach(r => {
@@ -77,9 +70,7 @@ const searchDeb = (fn) => {
 const searchDebFn = searchDeb(searchRep)
 
 searchInput.addEventListener('keyup', (e) => {
-
 	if (e.keyCode !== 32 && searchInput.value.length !== 0 && e.keyCode !== 8) {
-
 		searchDebFn()
 	}
 
@@ -87,16 +78,12 @@ searchInput.addEventListener('keyup', (e) => {
 		searchItems.textContent = ''
 	}
 
-
-
-
 })
 
 
 postsItems.addEventListener('click', e => {
 	if (e.target.className === 'posts__item-delete') {
-
 		e.target.parentElement.remove()
-
 	}
+
 })
