@@ -91,7 +91,7 @@ li {
 .posts__item-delete {
 	display: block;
 	position: relative;
-	background: url('/img/buttonDelete.svg') no-repeat;
+	background: url('./img/buttonDelete.svg') no-repeat;
 	cursor: pointer;
 	width: 46px;
 	height: 42px;
@@ -101,7 +101,7 @@ li {
 	content: '';
 	position: absolute;
 	transform: rotate(90deg);
-	background: url('/img/buttonDelete.svg') no-repeat;
+	background: url('./img/buttonDelete.svg') no-repeat;
 	top: 0;
 	left: 0;
 	width: 100%;
