@@ -41,9 +41,7 @@ li {
 	line-height: 56.25px;
 }
 
-.search__items {
-	height: 261px;
-}
+
 
 .search__item {
 	display: block;
@@ -69,6 +67,8 @@ li {
 .posts__items {
 	display: flex;
 	flex-direction: column;
+	max-height: 330px;
+	overflow-y: auto;
 }
 
 .posts__item {
